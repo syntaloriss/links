@@ -374,6 +374,10 @@
         .c-btc:hover { background: rgba(247, 147, 26, 0.2); color: #ffbb4d; }
         .c-eth { background: rgba(98, 126, 234, 0.12); color: #7a93f0; }
         .c-eth:hover { background: rgba(98, 126, 234, 0.2); color: #94a8ff; }
+        .c-pdd { background: rgba(255, 100, 50, 0.1); color: #ff8855; }
+        .c-pdd:hover { background: rgba(255, 100, 50, 0.2); color: #ffaa77; }
+        .c-study { background: rgba(100, 200, 100, 0.1); color: #88dd88; }
+        .c-study:hover { background: rgba(100, 200, 100, 0.2); color: #aaffaa; }
 
         .full { grid-column: 1 / -1; }
 
@@ -435,6 +439,7 @@
     </style>
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
     <div class="bg"></div>
@@ -466,7 +471,7 @@
         <div class="grid" id="g-social">
             <a href="https://github.com/syntaloriss" target="_blank" class="card">
                 <div class="ico c-github"><i class="fab fa-github"></i></div>
-                <div class="info"><h3>GitHub</h3><p>syntaloris</p></div>
+                <div class="info"><h3>GitHub</h3><p>syntaloriss</p></div>
                 <i class="fas fa-chevron-right arrow"></i>
             </a>
             <a href="https://t.me/syntaloris" target="_blank" class="card">
@@ -486,6 +491,25 @@
             </a>
         </div>
 
+        <div class="section" style="animation-delay: 0.35s;">
+            <div class="section-line"></div>
+            <h2>ПРОЕКТЫ</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="grid" id="g-projects">
+            <a href="https://t.me/syl_pdd" target="_blank" class="card">
+                <div class="ico c-pdd"><i class="fas fa-car"></i></div>
+                <div class="info"><h3>PDD</h3><p>@syl_pdd</p></div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </a>
+            <a href="https://t.me/syl_study" target="_blank" class="card">
+                <div class="ico c-study"><i class="fas fa-graduation-cap"></i></div>
+                <div class="info"><h3>Study</h3><p>@syl_study</p></div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </a>
+        </div>
+
         <div class="section" style="animation-delay: 0.3s;">
             <div class="section-line"></div>
             <h2>TELEGRAM BOOST</h2>
@@ -498,7 +522,17 @@
                 <div class="info"><h3>Telegram Boost</h3><p>t.me/boost/syntaloris</p></div>
                 <i class="fas fa-chevron-right arrow"></i>
             </a>
-        </div>
+        
+            <a href="https://t.me/boost/syl_pdd" target="_blank" class="card">
+                <div class="ico c-boost-tg"><i class="fas fa-car"></i></div>
+                <div class="info"><h3>PDD Boost</h3><p>t.me/boost/syl_pdd</p></div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </a>
+            <a href="https://t.me/boost/syl_study" target="_blank" class="card">
+                <div class="ico c-boost-tg"><i class="fas fa-graduation-cap"></i></div>
+                <div class="info"><h3>Study Boost</h3><p>t.me/boost/syl_study</p></div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </a></div>
 
         <div class="section" style="animation-delay: 0.45s;">
             <div class="section-line"></div>
@@ -547,6 +581,7 @@
             });
         }
         reveal('g-social', 200);
+        reveal('g-projects', 350);
         reveal('g-boost', 500);
         reveal('g-donate', 800);
 
