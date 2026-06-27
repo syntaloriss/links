@@ -436,14 +436,481 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #080808; }
         ::-webkit-scrollbar-thumb { background: #2a0a0a; border-radius: 3px; }
-    </style>
-<base target="_blank">
+    
+        /* Grid background pattern for visual interest */
+        .grid-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: 
+                linear-gradient(rgba(255, 60, 60, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 60, 60, 0.025) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        /* Third orb for center visual balance */
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: rgba(200, 160, 80, 0.06);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: drift 28s ease-in-out infinite 2s;
+        }
+
+        /* Fourth orb for top-right area */
+        .orb-4 {
+            width: 300px;
+            height: 300px;
+            background: rgba(180, 40, 40, 0.1);
+            top: 20%;
+            right: -80px;
+            animation: drift 22s ease-in-out infinite 4s reverse;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced card entrance animation */
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .card.visible {
+            animation: cardEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Subtle glow effect on profile */
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(180, 40, 40, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Enhanced tag hover with glow */
+        .tag {
+            position: relative;
+            overflow: hidden;
+        }
+        .tag::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 60, 60, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tag:hover::before {
+            opacity: 1;
+        }
+
+        /* Section line glow enhancement */
+        .section-line {
+            box-shadow: 0 0 10px rgba(180, 50, 50, 0.1);
+        }
+
+        /* Card subtle inner glow */
+        .card {
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+        .card:hover {
+            box-shadow: 
+                0 20px 60px rgba(60, 0, 0, 0.35),
+                0 0 30px rgba(180, 40, 40, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        /* ===== LARGE SCREENS (1400px - 1800px) ===== */
+        @media (min-width: 1400px) {
+            .wrap {
+                max-width: 900px;
+                padding: 100px 40px 100px;
+                gap: 56px;
+            }
+            .avatar {
+                width: 180px;
+                height: 180px;
+            }
+            .name {
+                font-size: 4.2rem;
+                letter-spacing: 4px;
+            }
+            .tags {
+                gap: 12px;
+            }
+            .tag {
+                font-size: 0.9rem;
+                padding: 8px 22px;
+            }
+            .section {
+                gap: 32px;
+            }
+            .section h2 {
+                font-size: 1.2rem;
+                letter-spacing: 8px;
+            }
+            .grid {
+                gap: 20px;
+            }
+            .card {
+                padding: 24px 28px;
+                gap: 22px;
+                border-radius: 22px;
+            }
+            .ico {
+                width: 56px;
+                height: 56px;
+                font-size: 1.6rem;
+                border-radius: 16px;
+            }
+            .info h3 {
+                font-size: 1.3rem;
+            }
+            .info p {
+                font-size: 1rem;
+            }
+            .boost-card .info h3 {
+                font-size: 1.45rem;
+            }
+            .boost-card .info p {
+                font-size: 1.1rem;
+            }
+            .boost-card .ico {
+                font-size: 1.9rem;
+            }
+        }
+
+        /* ===== EXTRA LARGE SCREENS (1800px - 2400px) ===== */
+        @media (min-width: 1800px) {
+            .wrap {
+                max-width: 1100px;
+                padding: 120px 48px 120px;
+                gap: 64px;
+            }
+            .avatar {
+                width: 200px;
+                height: 200px;
+                border-width: 4px;
+            }
+            .ring {
+                inset: -14px;
+                border-width: 3px;
+            }
+            .ring-pulse {
+                inset: -14px;
+                border-width: 3px;
+            }
+            .name {
+                font-size: 4.8rem;
+                letter-spacing: 5px;
+            }
+            .tags {
+                gap: 14px;
+            }
+            .tag {
+                font-size: 0.95rem;
+                padding: 9px 26px;
+                border-radius: 28px;
+            }
+            .section {
+                gap: 40px;
+            }
+            .section-line {
+                height: 3px;
+            }
+            .section h2 {
+                font-size: 1.35rem;
+                letter-spacing: 10px;
+            }
+            .grid {
+                gap: 24px;
+            }
+            .card {
+                padding: 26px 32px;
+                gap: 24px;
+                border-radius: 24px;
+            }
+            .card::after {
+                border-radius: 21px;
+            }
+            .ico {
+                width: 60px;
+                height: 60px;
+                font-size: 1.75rem;
+                border-radius: 18px;
+            }
+            .info h3 {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+            }
+            .info p {
+                font-size: 1.05rem;
+            }
+            .arrow {
+                font-size: 1.1rem;
+            }
+            .boost-card .info h3 {
+                font-size: 1.55rem;
+            }
+            .boost-card .info p {
+                font-size: 1.15rem;
+            }
+            .boost-card .ico {
+                font-size: 2rem;
+            }
+            .toast {
+                padding: 16px 36px;
+                font-size: 1.1rem;
+                border-radius: 16px;
+            }
+        }
+
+        /* ===== ULTRA WIDE SCREENS (2400px+) ===== */
+        @media (min-width: 2400px) {
+            .wrap {
+                max-width: 1300px;
+                padding: 140px 56px 140px;
+                gap: 72px;
+            }
+            .avatar {
+                width: 220px;
+                height: 220px;
+            }
+            .name {
+                font-size: 5.4rem;
+                letter-spacing: 6px;
+            }
+            .tags {
+                gap: 16px;
+            }
+            .tag {
+                font-size: 1rem;
+                padding: 10px 30px;
+            }
+            .section {
+                gap: 48px;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+                letter-spacing: 12px;
+            }
+            .grid {
+                gap: 28px;
+            }
+            .card {
+                padding: 28px 36px;
+                gap: 26px;
+            }
+            .ico {
+                width: 64px;
+                height: 64px;
+                font-size: 1.9rem;
+                border-radius: 20px;
+            }
+            .info h3 {
+                font-size: 1.5rem;
+            }
+            .info p {
+                font-size: 1.1rem;
+            }
+            .boost-card .info h3 {
+                font-size: 1.7rem;
+            }
+            .boost-card .info p {
+                font-size: 1.2rem;
+            }
+            .boost-card .ico {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* ===== 4K+ SCREENS (3200px+) ===== */
+        @media (min-width: 3200px) {
+            .wrap {
+                max-width: 1600px;
+                padding: 160px 64px 160px;
+                gap: 80px;
+            }
+            .avatar {
+                width: 260px;
+                height: 260px;
+                border-width: 5px;
+            }
+            .ring {
+                inset: -18px;
+                border-width: 3px;
+            }
+            .ring-pulse {
+                inset: -18px;
+                border-width: 3px;
+            }
+            .name {
+                font-size: 6.5rem;
+                letter-spacing: 8px;
+            }
+            .tags {
+                gap: 18px;
+            }
+            .tag {
+                font-size: 1.1rem;
+                padding: 12px 34px;
+                border-radius: 32px;
+            }
+            .section {
+                gap: 56px;
+            }
+            .section h2 {
+                font-size: 1.7rem;
+                letter-spacing: 14px;
+            }
+            .grid {
+                gap: 32px;
+            }
+            .card {
+                padding: 32px 40px;
+                gap: 28px;
+                border-radius: 28px;
+            }
+            .ico {
+                width: 72px;
+                height: 72px;
+                font-size: 2.1rem;
+                border-radius: 22px;
+            }
+            .info h3 {
+                font-size: 1.7rem;
+                margin-bottom: 10px;
+            }
+            .info p {
+                font-size: 1.2rem;
+            }
+            .arrow {
+                font-size: 1.2rem;
+            }
+            .boost-card .info h3 {
+                font-size: 1.9rem;
+            }
+            .boost-card .info p {
+                font-size: 1.3rem;
+            }
+            .boost-card .ico {
+                font-size: 2.4rem;
+            }
+            .toast {
+                padding: 18px 40px;
+                font-size: 1.2rem;
+                border-radius: 18px;
+            }
+        }
+
+        /* ===== MOBILE OPTIMIZATIONS ===== */
+        @media (max-width: 540px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .card {
+                padding: 18px 20px;
+                gap: 16px;
+            }
+            .ico {
+                width: 44px;
+                height: 44px;
+                font-size: 1.25rem;
+            }
+            .info h3 {
+                font-size: 1.1rem;
+            }
+            .info p {
+                font-size: 0.85rem;
+            }
+            .section h2 {
+                font-size: 0.9rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2.6rem;
+            }
+            .wrap {
+                padding: 48px 20px;
+                gap: 36px;
+            }
+            .avatar {
+                width: 130px;
+                height: 130px;
+            }
+            .tag {
+                font-size: 0.75rem;
+                padding: 6px 14px;
+                letter-spacing: 1.5px;
+            }
+        }
+
+        /* ===== TINY SCREENS ===== */
+        @media (max-width: 360px) {
+            .wrap {
+                padding: 36px 16px;
+                gap: 28px;
+            }
+            .avatar {
+                width: 110px;
+                height: 110px;
+            }
+            .name {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+            }
+            .card {
+                padding: 16px 18px;
+                gap: 14px;
+                border-radius: 16px;
+            }
+            .ico {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+                border-radius: 12px;
+            }
+            .info h3 {
+                font-size: 1rem;
+            }
+            .info p {
+                font-size: 0.8rem;
+            }
+        }
+</style>
 <base target="_blank">
 <base target="_blank">
 </head>
 <body>
     <div class="bg"></div>
+    <div class="grid-pattern"></div>
     <div class="orb orb-1"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
     <div class="orb orb-2"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
 
